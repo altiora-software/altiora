@@ -84,21 +84,42 @@ export default function Servicios() {
           <span className="text-[#4888CD]">Incluyen:</span>
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg"
-            >
-              <h4 className="text-xl font-semibold mb-4">TITULO {i + 1}</h4>
-              <p className="text-gray-700 dark:text-gray-300">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                semper consequat libero a consequat. Cras ac volutpat ex, nec
-                posuere metus. Praesent porttitor iaculis condimentum. Praesent
-                malesuada mi nunc, non auctor ex scelerisque id. Sed sed
-                pellentesque lorem, eu blandit risus.
-              </p>
-            </div>
-          ))}
+          <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">
+            <h4 className="text-xl font-semibold mb-4">Asesoría Gratuita</h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              Asesoría gratuita durante el proceso para ayudarte a despejar dudas y brindarte soluciones.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">
+            <h4 className="text-xl font-semibold mb-4">Equipo Experto</h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              Un equipo exclusivo y experto en diseño y desarrollo web profesional para ayudarte con cada paso.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">
+            <h4 className="text-xl font-semibold mb-4">Diseño Personalizado</h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              Diseños de páginas web personalizados y optimizados para dispositivos móviles.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">
+            <h4 className="text-xl font-semibold mb-4">Optimización</h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              Sitio web/tienda en línea optimizada para carga rápida y posicionamiento en buscadores.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">
+            <h4 className="text-xl font-semibold mb-4">Hosting</h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              Hasta 5GB de hosting para alojar tu aplicacion web y una copia de seguridad por mes.
+            </p>
+          </div>
+          <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">
+            <h4 className="text-xl font-semibold mb-4">Seguridad</h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              Desarrollo con altos estándares de seguridad.
+            </p>
+          </div>
         </div>
       </Container>
 
