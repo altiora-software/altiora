@@ -3,13 +3,13 @@
 ### 1\. Clone this Repository
 
 ```bash
-git clone https://github.com/surjithctly/nextly-template.git
+git clone https://github.com/altiora-software/altiora.git
 ```
 
 ### 2\. Navigate to the directory
 
 ```
-cd nextly-template
+cd altiora
 ```
 
 ### 3\. Install dependencies
