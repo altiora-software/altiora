@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 
 const ChatWhatsapp = () => {
-  const num = "3884398439";
+  const num = "+5493884398439";
 
   const message = "Hola!%20Tengo%20una%20idea%20";
 
