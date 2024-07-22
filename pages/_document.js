@@ -18,6 +18,7 @@ class MyDocument extends Document {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-DWNYC0JYQH');
+                console.log('Google Analytics script loaded');
               `,
             }}
           />
