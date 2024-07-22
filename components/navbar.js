@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
 import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import Topbar from "./Topbar";
 
 const Navbar = ({ links = [] }) => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
@@ -41,7 +42,8 @@ const Navbar = ({ links = [] }) => {
 
   return (
     <div className="w-full fixed top-0 z-10 bg-[#ffffff] dark:bg-[#111827]">
-      <nav className="container relative flex flex-wrap items-center justify-between p-4 mx-auto md:py-6 lg:pl-0 lg:pr-0">
+      <Topbar />
+      <nav className="container relative flex flex-wrap items-center justify-between p-4 mx-auto py-2 md:py-4 lg:pl-0 lg:pr-0">
         {/* Navbar mobile */}
         <Disclosure>
           {({ open }) => (
@@ -79,7 +81,6 @@ const Navbar = ({ links = [] }) => {
                     ) : (
                       <path
                         fillRule="evenodd"
-                        clipRule="evenodd"
                         d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
                       />
                     )}
@@ -87,7 +88,7 @@ const Navbar = ({ links = [] }) => {
                 </Disclosure.Button>
                 {/* ITEMS NAVBAR MOBILE */}
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
-                  {links.map((item, index) => (
+                  {links.map((item, index) =>
                     item.name === "Servicios" ? (
                       <div
                         key={index}
@@ -120,11 +121,11 @@ const Navbar = ({ links = [] }) => {
                               </p>
                             </Link>
                             <div className="relative">
-                            <Link href="/sitiosWeb">
-                              <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                                Aplicaciones Webs
-                              </p>
-                            </Link>
+                              <Link href="/sitiosWeb">
+                                <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                                  Aplicaciones Webs
+                                </p>
+                              </Link>
                               {/* <p
                                 className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none"
                                 onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
@@ -178,7 +179,7 @@ const Navbar = ({ links = [] }) => {
                         {item.name}
                       </ScrollLink>
                     )
-                  ))}
+                  )}
                   <div className="pt-3 pl-4">
                     <ThemeChanger />
                   </div>
@@ -187,12 +188,69 @@ const Navbar = ({ links = [] }) => {
             </>
           )}
         </Disclosure>
-  
+
         {/* Navbar for desktop (from md and up) */}
         <div className="hidden lg:flex items-center lg:ml-4 lg:mr-8">
           <ul className="flex-1 flex items-center justify-end lg:space-x-4 list-none">
-            {links.map((menu, index) => (
+            {links.map((menu, index) =>
               menu.name === "Servicios" ? (
+                // <li
+                //   key={index}
+                //   className="relative"
+                //   onMouseEnter={handleMouseEnter}
+                //   onMouseLeave={handleMouseLeave}
+                // >
+                //   <span className="px-4 py-2 text-lg font-normal text-gray-800 rounded-md dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                //     Servicios
+                //   </span>
+                //   {dropdownOpen && (
+                //     <div className="absolute left-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg">
+                //       <Link href="/fabrica-de-software">
+                //         <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                //           Fábrica de Software
+                //         </p>
+                //       </Link>
+                //       <div className="relative">
+                //         <p
+                //           className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none"
+                //           onMouseEnter={toggleMobileDropdown}
+                //           onMouseLeave={toggleMobileDropdown}
+                //         >
+                //           Apps Webs
+                //         </p>
+                //         {mobileDropdownOpen && (
+                //           <div className="absolute left-full top-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg">
+                //             <Link href="/paquetes-todos">
+                //               <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                //                 Todos los Paquetes
+                //               </p>
+                //             </Link>
+                //             <Link href="/paquete1">
+                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                //                 Paquete 1
+                //               </p>
+                //             </Link>
+                //             <Link href="/paquete2">
+                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                //                 Paquete 2
+                //               </p>
+                //             </Link>
+                //             <Link href="/paquete3">
+                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                //                 Paquete 3
+                //               </p>
+                //             </Link>
+                //             <Link href="/paquete4">
+                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
+                //                 Paquete 4
+                //               </p>
+                //             </Link>
+                //           </div>
+                //         )}
+                //       </div>
+                //     </div>
+                //   )}
+                // </li>
                 <li
                   key={index}
                   className="relative"
@@ -203,22 +261,30 @@ const Navbar = ({ links = [] }) => {
                     Servicios
                   </span>
                   {dropdownOpen && (
-                    <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg">
+                    <div
+                      className="absolute left-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <Link href="/fabrica-de-software">
                         <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
                           Fábrica de Software
                         </p>
                       </Link>
-                      <div className="relative">
-                        <p
-                          className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none"
-                          onMouseEnter={toggleMobileDropdown}
-                          onMouseLeave={toggleMobileDropdown}
-                        >
+                      <div
+                        className="relative"
+                        onMouseEnter={() => setSubMenuOpen(true)}
+                        onMouseLeave={() => setSubMenuOpen(false)}
+                      >
+                        <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
                           Apps Webs
                         </p>
-                        {mobileDropdownOpen && (
-                          <div className="absolute left-0 mt-2 w-full bg-white dark:bg-gray-800 rounded-md shadow-lg">
+                        {subMenuOpen && (
+                          <div
+                            className="absolute left-full top-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg"
+                            onMouseEnter={() => setSubMenuOpen(true)}
+                            onMouseLeave={() => setSubMenuOpen(false)}
+                          >
                             <Link href="/paquetes-todos">
                               <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
                                 Todos los Paquetes
@@ -265,7 +331,7 @@ const Navbar = ({ links = [] }) => {
                   </ScrollLink>
                 </li>
               )
-            ))}
+            )}
             <li className="pl-4">
               <ThemeChanger />
             </li>
