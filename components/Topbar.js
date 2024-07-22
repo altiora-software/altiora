@@ -1,7 +1,7 @@
 // components/Topbar.js
 const Topbar = () => {
   return (
-    <div className="bg-blue-600 text-white py-2 fixed top-0 w-full overflow-hidden  z-20">
+    <div className="bg-blue-600 text-white py-1 top-0 w-full overflow-hidden  z-20">
       <div className="marquee whitespace-nowrap">
         <span className="mx-4">
           ¡30% de descuento en todos nuestros planes este mes!

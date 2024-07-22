@@ -87,7 +87,7 @@ const Home = () => {
           {/* GRADIENT 
             className="bg-gradient-to-r from-blue-300 via-gray-200 to-gray-50"
           */}
-          <Topbar />
+          {/* <Topbar /> */}
           <Element name="inicio">
             <Navbar links={links} />
           </Element>

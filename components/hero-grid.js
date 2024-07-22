@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "./container";
 import heroImg from "../public/img-logo/AltioraSloganFondoOscuro.png";
-import heroDarkImg from "../public/img-logo/logoCompletoNegro.png";
+import heroDarkImg from "../public/img-logo/hero-grid-negro.png";
 import { useRouter } from "next/router";
 
 
@@ -63,8 +63,8 @@ const HeroGrid = () => {
             className="flex flex-col md:justify-center pb-0 md:items-center row-[2/3] md:row-[1/2] md:col-[1/2]"
           >
             <div className="pt-5 md:pt-0  ">
-              <p className="font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
-                Te ayudamos a impulsar tu negocio en la era digital! 
+              <p className="font-bold leading-snug tracking-tight text-gray-800 text-3xl lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+                Te ayudamos a impulsar tu negocio en la era digital!
               </p>
               <p className="py-4 text-[16px] leading-normal text-gray-700 lg:text-xl xl:text-2xl dark:text-gray-300">
                 <span className="">
@@ -88,10 +88,10 @@ const HeroGrid = () => {
           {/* img desktop  */}
           <div className="md:p-6 mt-[96px] md:col-[2/3]">
             <div className="flex justify-center ">
-              <motion.div 
+              <motion.div
                 variants={imageAnimation}
                 initial="hidden"
-                animate = "show"
+                animate="show"
                 // className=""
               >
                 <Image
