@@ -1,14 +1,25 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import Link from "next/link";
+// pages/_document.js
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <Link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap"
-            rel="stylesheet"
+          {/* Google Analytics */}
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-DWNYC0JYQH"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-DWNYC0JYQH');
+              `,
+            }}
           />
         </Head>
         <body>
