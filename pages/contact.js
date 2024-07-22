@@ -1,5 +1,5 @@
 import Container from "../components/container";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { sendContactForm } from "../lib/api";
 import ReactGA from "react-ga"
 const initValues = { nombre:"" ,email: "", phone: "", message: "" };
