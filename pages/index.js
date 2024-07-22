@@ -18,23 +18,23 @@ import ReactGA from "react-ga";
 
 
 const Home = () => {
-  const TRACKING_ID = "G-DWNYC0JYQH"
-  ReactGA.initialize(TRACKING_ID);
   
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [completed, setCompleted] = useState(false);
-
-
-   const links = [
-     { name: "Inicio", href: "/" },
-     { name: "Servicios", href: "/servicios" },
-     { name: "Contacto", href: "/contact" },
+  
+  
+  const links = [
+    { name: "Inicio", href: "/" },
+    { name: "Servicios", href: "/servicios" },
+    { name: "Contacto", href: "/contact" },
     //  { name: "Paquetes", href: "/paquetes-todos" },
-     // Añade más enlaces según sea necesario
-   ];
-
+    // Añade más enlaces según sea necesario
+  ];
+  
   useEffect(() => {
+    const TRACKING_ID = "G-DWNYC0JYQH"
+    ReactGA.initialize(TRACKING_ID);
     const timer = setInterval(() => {
       if (progress < 100) {
         setProgress((prevProgress) => prevProgress + 1);
