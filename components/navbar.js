@@ -57,7 +57,14 @@ const Navbar = ({ links = [] }) => {
                       alt="N"
                       width="32"
                       height="32"
-                      className="w-14"
+                      className="w-14 hidden dark:block"
+                    />
+                    <Image
+                      src="/img-logo/logo-altiora-sin-fondo-negro.png"
+                      alt="N"
+                      width="32"
+                      height="32"
+                      className="w-14 block dark:hidden "
                     />
                     <span>Altiora</span>
                   </span>

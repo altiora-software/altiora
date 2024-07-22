@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "./container";
 import heroImg from "../public/img-logo/AltioraSloganFondoOscuro.png";
-import heroDarkImg from "../public/img-logo/logoCompletoNegro.png";
+import heroDarkImg from "../public/img-logo/hero-grid-negro.png";
 import { useRouter } from "next/router";
 
 
