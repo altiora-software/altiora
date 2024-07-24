@@ -273,7 +273,7 @@ const Navbar = ({ links = [] }) => {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link href="/fabrica-de-software">
+                      <Link href="/fabricaSoft">
                         <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
                           Fábrica de Software
                         </p>
