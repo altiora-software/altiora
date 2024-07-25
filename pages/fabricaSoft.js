@@ -6,9 +6,11 @@ import Footer from "../components/footer";
 const FabricaSoft = () => {
 
     const links = [
-        { name: "Inicio", href: "/" },
-        { name: "Servicios", href: "/" },
-        { name: "Contacto", href: "/" },
+        { name: "Inicio", href: "/inicio" },
+        { name: "Servicios", href: "/servicios" },
+        { name: "Contacto", href: "/contacto" },
+        { name: "Nosotros", href: "/nosotros" },
+
       ];
     const technologies = [
         { name: "HTML", icon: "/img/iconTech/html.png" },

@@ -30,6 +30,7 @@ const Home = () => {
      { name: "Inicio", href: "/" },
      { name: "Servicios", href: "/servicios" },
      { name: "Contacto", href: "/contact" },
+     { name: "Nosotros", href: "/nosotros" },
     //  { name: "Paquetes", href: "/paquetes-todos" },
      // Añade más enlaces según sea necesario
    ];
@@ -53,7 +54,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Altiora</title>
+        <title>Altiora Software</title>
         <meta name="description" content="landing" />
         <link rel="icon" href="/img-logo/Altiora.ico" />
       </Head>
@@ -105,9 +106,9 @@ const Home = () => {
           {/* BENEFICIOS */}
           {/* <ServiceCarousel /> */}
           {/* NOSOTROS */}
-          {/* <Element name="Nosotros">
+          <Element name="Nosotros">
             <Nosotros />
-          </Element> */}
+          </Element>
           <Footer />
           <PopupWidget />
         </div>
