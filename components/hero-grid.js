@@ -3,6 +3,8 @@ import Container from "./container";
 import heroImg from "../public/img-logo/AltioraSloganFondoOscuro.png";
 import heroDarkImg from "../public/img-logo/hero-grid-negro.png";
 import { useRouter } from "next/router";
+import { Link as ScrollLink } from "react-scroll";
+
 
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -46,12 +48,9 @@ const imageAnimation = {
   },
 };
 
-const HeroGrid = () => {
+const HeroGrid = (links) => {
   const router = useRouter();
-
-  const handleContactButtonClick = () => {
-    router.push("/contact");
-  };
+  console.log('link', links);
 
   return (
     <AnimatePresence>
@@ -78,8 +77,18 @@ const HeroGrid = () => {
               </p>
 
               <div className="flex flex-col items-start space-y-3 pt-4 md:pt-0 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
-                <button className="relative z-0 h-12 rounded-full bg-[#4888CD] px-6 text-neutral-50 after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rounded-full after:bg-[#4888CD] hover:after:scale-x-125 hover:after:scale-y-150 hover:after:opacity-0 hover:after:transition hover:after:duration-500">
-                  Contáctanos
+                <button className="relative z-0 h-12 rounded-full bg-[#4888CD] px-6 text-neutral-50 after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rounded-full after:bg-[#4888CD] hover:after:scale-x-125 hover:after:scale-y-150 hover:after:opacity-0 hover:after:transition hover:after:duration-500">  
+                    <ScrollLink
+                    className="px-4 py-2 text-lg font-normal text-gray-800 rounded-md dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none"
+                    activeClass="active"
+                    to={'Contacto'}
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={700}
+                    >
+                    Contáctanos
+                  </ScrollLink>
                 </button>
               </div>
             </div>
@@ -123,35 +132,6 @@ const HeroGrid = () => {
             </div>
           </div>
         </Container>
-
-        {/** se comenta hasta tener clientes para mostrar agregando a jujuy barroco e invitaciones virtuales */}
-
-        {/* <Container>
-        <div className="flex flex-col justify-center">
-          <div className="text-xl text-center text-gray-700 dark:text-white">
-          Confianza de más de  <span className="text-indigo-600">2000+</span>{" "}
-          clientes en todo el mundo
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <AmazonLogo />
-            </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <VerizonLogo />
-            </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <MicrosoftLogo />
-            </div>
-            <div className="pt-1 text-gray-400 dark:text-gray-400">
-              <NetflixLogo />
-            </div>
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <SonyLogo />
-            </div>
-          </div>
-        </div>
-      </Container> */}
       </motion.div>
     </AnimatePresence>
   );

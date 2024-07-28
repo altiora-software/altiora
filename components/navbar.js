@@ -201,63 +201,7 @@ const Navbar = ({ links = [] }) => {
           <ul className="flex-1 flex items-center justify-end lg:space-x-4 list-none">
             {links.map((menu, index) =>
               menu.name === "Servicios" ? (
-                // <li
-                //   key={index}
-                //   className="relative"
-                //   onMouseEnter={handleMouseEnter}
-                //   onMouseLeave={handleMouseLeave}
-                // >
-                //   <span className="px-4 py-2 text-lg font-normal text-gray-800 rounded-md dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                //     Servicios
-                //   </span>
-                //   {dropdownOpen && (
-                //     <div className="absolute left-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg">
-                //       <Link href="/fabrica-de-software">
-                //         <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                //           Fábrica de Software
-                //         </p>
-                //       </Link>
-                //       <div className="relative">
-                //         <p
-                //           className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none"
-                //           onMouseEnter={toggleMobileDropdown}
-                //           onMouseLeave={toggleMobileDropdown}
-                //         >
-                //           Apps Webs
-                //         </p>
-                //         {mobileDropdownOpen && (
-                //           <div className="absolute left-full top-0 mt-0 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg">
-                //             <Link href="/paquetes-todos">
-                //               <p className="px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                //                 Todos los Paquetes
-                //               </p>
-                //             </Link>
-                //             <Link href="/paquete1">
-                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                //                 Paquete 1
-                //               </p>
-                //             </Link>
-                //             <Link href="/paquete2">
-                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                //                 Paquete 2
-                //               </p>
-                //             </Link>
-                //             <Link href="/paquete3">
-                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                //                 Paquete 3
-                //               </p>
-                //             </Link>
-                //             <Link href="/paquete4">
-                //               <p className="px-4 py-2 text-lg font-normal text-gray-800 dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
-                //                 Paquete 4
-                //               </p>
-                //             </Link>
-                //           </div>
-                //         )}
-                //       </div>
-                //     </div>
-                //   )}
-                // </li>
+                
                 <li
                   key={index}
                   className="relative"
