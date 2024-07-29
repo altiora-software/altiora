@@ -1,5 +1,5 @@
 import { transporter } from "../../config/nodemailer";
-import generateEmailTemplate from "../../lib/emailTemplate";
+import generateEmailTemplate from "../../templates/templateMail";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
@@ -13,7 +13,8 @@ const handler = async (req, res) => {
     };
     
     if (!data.email || !data.phone || !data.message || !data.nombre) {
-      return res.status(400).json({ message: "Bad request" });
+      console.log('data',data);
+      // return res.status(400).json({ message: "Bad request" });
     }
 
     try {
