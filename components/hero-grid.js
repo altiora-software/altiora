@@ -50,7 +50,7 @@ const imageAnimation = {
 
 const HeroGrid = (links) => {
   const router = useRouter();
-  console.log('link', links);
+  // console.log('link', links);
 
   return (
     <AnimatePresence>

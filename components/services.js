@@ -77,14 +77,21 @@ export default function Services() {
                   <h2 className="text-center title-font text-lg font-medium text-white mb-3 transition duration-500 ease-in-out opacity-100 group-hover:opacity-0">
                     ¿Quieres destacar en el mundo digital?
                   </h2>
-                  <p className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out flex flex-col justify-center items-center text-center font-bold p-4">
-                    Descubre los beneficios de tener un sitio web diseñado
-                    profesionalmente. Desde landing pages económicas perfectas
-                    para vender tus productos estrella, hasta sitios web
-                    tradicionales con 4, 8, y 12 secciones o más. Nuestros
-                    paquetes se adaptan a tus necesidades y presupuesto,
-                    brindándote una presencia en línea que atrae y convierte
-                    visitantes en clientes leales.
+                  <p className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out flex flex-col justify-center items-center text-center font-bold p-4 md:p-6 text-sm md:text-base">
+                    <span className="block md:hidden">
+                      Descubre los beneficios de tener un sitio web diseñado
+                      profesionalmente. Desde landing pages económicas hasta
+                      sitios web tradicionales con múltiples secciones.
+                    </span>
+                    <span className="hidden md:block">
+                      Descubre los beneficios de tener un sitio web diseñado
+                      profesionalmente. Desde landing pages económicas perfectas
+                      para vender tus productos estrella, hasta sitios web
+                      tradicionales con 4, 8, y 12 secciones o más. Nuestros
+                      paquetes se adaptan a tus necesidades y presupuesto,
+                      brindándote una presencia en línea que atrae y convierte
+                      visitantes en clientes leales.
+                    </span>
                     <Link href="/sitiosWeb">
                       <button className="mt-4 opacity-100 justify-center items-center transition duration-500 ease-in-out bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Ver Paquetes
@@ -124,14 +131,20 @@ export default function Services() {
                     ¿Necesitas una solución de software personalizada para tu
                     negocio?
                   </h2>
-                  <p className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out flex flex-col justify-center items-center text-center font-bold p-4">
-                    Conoce nuestras soluciones personalizadas para desarrollar
-                    aplicaciones que se ajustan perfectamente a tus
-                    requerimientos. Utilizamos las últimas tecnologías y
-                    metodologías ágiles para garantizar que tu proyecto sea un
-                    éxito. Explora las especificaciones detalladas de nuestros
-                    servicios y las tecnologías con las que trabajamos, desde
-                    desarrollo frontend hasta backend robusto.
+                  <p className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out flex flex-col justify-center items-center text-center font-bold p-4 md:p-6 text-sm md:text-base">
+                    <span className="block md:hidden">
+                      Conoce nuestras soluciones personalizadas para desarrollar
+                      aplicaciones que se ajustan a tus requerimientos.
+                    </span>
+                    <span className="hidden md:block">
+                      Conoce nuestras soluciones personalizadas para desarrollar
+                      aplicaciones que se ajustan perfectamente a tus
+                      requerimientos. Utilizamos las últimas tecnologías y
+                      metodologías ágiles para garantizar que tu proyecto sea un
+                      éxito. Explora las especificaciones detalladas de nuestros
+                      servicios y las tecnologías con las que trabajamos, desde
+                      desarrollo frontend hasta backend robusto.
+                    </span>
                     <Link href="/fabricaSoft">
                       <button className="mt-4 opacity-100 justify-center items-center transition duration-500 ease-in-out bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Explorar Tecnologías
