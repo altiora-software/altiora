@@ -109,7 +109,7 @@ export default function Servicios() {
           <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">
             <h4 className="text-xl font-semibold mb-4">Hosting</h4>
             <p className="text-gray-700 dark:text-gray-300">
-              Hasta 20GB de hosting para alojar tu aplicacion web y una copia de seguridad por mes.
+              Hasta 5GB de hosting para alojar tu aplicacion web y una copia de seguridad por mes.
             </p>
           </div>
           <div className="p-6 bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg">

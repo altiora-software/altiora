@@ -78,7 +78,7 @@ export default function Footer() {
             <div>Síguenos</div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
               <a
-                href="https://twitter.com/M_M_tech_group"
+                href="https://x.com/altiorasoftware"
                 target="_blank"
                 rel="noopener"
               >
@@ -86,18 +86,26 @@ export default function Footer() {
                 <Twitter />
               </a>
               <a
-                href="https://www.linkedin.com/company/m-m-tech-group/?viewAsMember=true/"
+                href="https://www.linkedin.com/company/altiora-software/about/?viewAsMember=true"
                 target="_blank"
                 rel="noopener"
               >
                 <span className="sr-only">Linkedin</span>
                 <Linkedin />
               </a>
-              <a href="https://facebook.com/" target="_blank" rel="noopener">
+              <a
+                href="https://github.com/altiora-software"
+                target="_blank"
+                rel="noopener"
+              >
                 <span className="sr-only">Facebook</span>
                 <Facebook />
               </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener">
+              <a
+                href="https://www.instagram.com/altiora_software/"
+                target="_blank"
+                rel="noopener"
+              >
                 <span className="sr-only">Instagram</span>
                 <Instagram />
               </a>

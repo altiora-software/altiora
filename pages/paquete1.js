@@ -1,119 +1,105 @@
 import React from "react";
 import Navbar from "../components/navbar";
 
-export default function Paquete1() {
-
+export default function Paquetes() {
   const caracteristicas = [
     {
       titulo: "Secciones",
-      incluido: true,
+      basico: "1 Sección",
       descripcion:
         "Diferentes secciones para organizar el contenido del sitio.",
     },
     {
       titulo: "Propuesta de diseño",
-      incluido: true,
+      basico: "Incluido",
       descripcion:
         "Propuesta estética personalizada basada en tus preferencias.",
     },
     {
       titulo: "Versión para celulares",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Diseño adaptable a dispositivos móviles.",
     },
     {
       titulo: "Dominio",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Registro de un dominio personalizado.",
     },
     {
       titulo: "Hosting",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Alojamiento web para tu sitio.",
     },
     {
-      titulo: "Cuentas de correo",
-      incluido: true,
-      descripcion: "Cuentas de correo asociadas a tu dominio.",
-    },
-    {
       titulo: "Galería de imágenes",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Espacio para mostrar una galería de imágenes.",
     },
     {
       titulo: "Animaciones",
-      incluido: false,
+      basico: "No incluido",
       descripcion: "Efectos visuales para mejorar la experiencia del usuario.",
     },
     {
       titulo: "Posicionamiento en buscadores",
-      incluido: false,
+      basico: "No incluido",
       descripcion: "Optimización para aparecer en los resultados de búsqueda.",
     },
     {
       titulo: "Ubicaciones con Google Maps",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Integración de mapas de Google para mostrar ubicaciones.",
     },
     {
       titulo: "Sincronización con redes sociales",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Vinculación con tus perfiles en redes sociales.",
     },
     {
       titulo: "Estadísticas de visita",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Herramientas para monitorear el tráfico del sitio.",
     },
     {
       titulo: "Formulario de contacto",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Formulario para que los visitantes puedan contactarte.",
     },
     {
       titulo: "Asesoría profesional",
-      incluido: false,
+      basico: "No incluido",
       descripcion: "Consejos y orientación profesional para mejorar tu sitio.",
     },
     {
       titulo: "Soporte técnico",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Asistencia técnica para resolver problemas del sitio.",
     },
     {
       titulo: "Acepta pagos en línea",
-      incluido: false,
+      basico: "No incluido",
       descripcion: "Integración con plataformas de pago en línea.",
     },
     {
       titulo: "1 mes de chat gratis",
-      incluido: true,
+      basico: "Incluido",
       descripcion: "Soporte mediante chat gratuito por un mes.",
     },
   ];
 
-  const paquete = {
-    titulo: "Paquete Básico 1 de Diseño Web",
-    subtitulo: "¡Económico, rápido y funcional!",
-    nombre: "basico",
-    caracteristicas: [
-      {
-        titulo: "Secciones",
-        valor: "1 Sección",
-        descripcion:
-          "Una sección permite poner la información de tu producto o servicio de manera directa, para que el usuario no se pierda buscando lo que necesita.",
-      },
-      {
-        titulo: "Propuesta de Diseño",
-        valor: "Incluido",
-        descripcion:
-          "Nuestros diseñadores te realizarán la propuesta de diseño para que tu sitio cumpla con tus requerimientos. Tu página será un lugar atractivo para tus visitantes.",
-        info: "El diseño se realiza tomando en cuenta las necesidades del cliente, y tomando en cuenta el logotipo que se proporcione. Leer mas",
-      },
-      // Añade más características según sea necesario...
-    ],
-  };
+  const paquetes = [
+    {
+      titulo: "Paquete Esencial",
+      subtitulo: "¡Económico, rápido y funcional!",
+      nombre: "esencial",
+      precio: "USD 200",
+      caracteristicas: caracteristicas.map((caracteristica) => ({
+        titulo: caracteristica.titulo,
+        valor: caracteristica.basico,
+        descripcion: caracteristica.descripcion,
+      })),
+    }
+  ];
 
   const links = [
     { name: "Inicio", href: "/" },
@@ -122,6 +108,7 @@ export default function Paquete1() {
     //  { name: "Paquetes", href: "/paquetes-todos" },
     // Añade más enlaces según sea necesario
   ];
+
   return (
     <div>
       <Navbar links={links} />
@@ -173,54 +160,62 @@ export default function Paquete1() {
         <div id="pagina">
           <div id="contenido">
             <div className="cabecera-contenido text-center my-8">
-              <h1 className="text-4xl font-bold">{paquete.titulo}</h1>
-              <h2 className="text-2xl font-light">{paquete.subtitulo}</h2>
+              <h1 className="text-4xl font-bold"> Paquete Esencial</h1>
+              <h2 className="text-2xl font-light">Elige el paquete que mejor se adapte a tus necesidades</h2>
             </div>
-            {/* CUADRO  */}
+            {/* Paquetes */}
             <div id="general-paquetes" className="w-full max-w-4xl mx-auto">
               <div className="flex flex-col items-center">
-                {/* Títulos de las columnas */}
-                <div className="w-full text-gray-900 grid grid-cols-1 md:grid-cols-3 gap-4 bg-gray-200 p-4 rounded-t-lg font-bold text-lg text-center md:text-left">
-                  <div></div>
-                  <div>BÁSICO $80 MIL PESOS</div>
-                  <div>Descripción</div>
-                </div>
+                {paquetes.map((paquete, index) => (
+                  <div key={index} className="mb-8 w-full">
+                    {/* Títulos de las columnas */}
+                    <div className="w-full text-gray-900 grid grid-cols-1 md:grid-cols-3 gap-4 bg-gray-200 p-4 rounded-t-lg font-bold text-lg text-center md:text-left">
+                      <div></div>
+                      <div>{paquete.precio}</div>
+                      <div>Descripción</div>
+                    </div>
 
-                {/* Contenido de cada fila */}
-                {caracteristicas.map((caracteristica, index) => (
-                  <div
-                    key={index}
-                    className={`w-full grid grid-cols-1 md:grid-cols-3 gap-4 p-4 ${
-                      index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"
-                    }`}
-                  >
-                    <div className="columna-desc columna-desc-uno font-bold text-center text-gray-900 md:text-left">
-                      {caracteristica.titulo}
-                    </div>
-                    <div className="columna-desc columna-desc-dos text-gray-600 text-center md:text-left">
-                      {caracteristica.incluido ? "Incluido" : "No incluido"}
-                    </div>
-                    <div className="columna-desc columna-desc-tres text-gray-700 text-center md:text-left">
-                      {caracteristica.descripcion}
+                    {/* Contenido de cada fila */}
+                    {paquete.caracteristicas.map((caracteristica, idx) => (
+                      <div
+                        key={idx}
+                        className={`w-full grid grid-cols-1 md:grid-cols-3 gap-4 p-4 ${
+                          idx % 2 === 0 ? "bg-gray-100" : "bg-gray-300"
+                        }`}
+                      >
+                        <div className="columna-desc columna-desc-uno font-bold text-center text-gray-900 md:text-left">
+                          {caracteristica.titulo}
+                        </div>
+                        <div className="columna-desc columna-desc-dos text-gray-600 text-center md:text-left">
+                          {caracteristica.valor}
+                        </div>
+                        <div className="columna-desc columna-desc-tres text-gray-600 text-center md:text-left">
+                          {caracteristica.descripcion}
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* Footer de los paquetes */}
+                    <div className="w-full text-gray-900 grid grid-cols-1 md:grid-cols-3 gap-4 bg-gray-200 p-4 rounded-b-lg font-bold text-lg text-center md:text-left">
+                      <div></div>
+                      <div className="flex justify-center md:justify-start">
+                        <button className="bg-blue-500 text-white py-2 px-4 rounded">
+                          Contratar
+                        </button>
+                      </div>
+                      <div></div>
                     </div>
                   </div>
                 ))}
-
-                {/* BOTÓN */}
-                <div className="text-center mt-8 w-full">
-                  <a
-                    href={`contacto-de-paginas-web-economicas.php?paquete=${paquete.nombre}`}
-                    title="SOLICITA TU PÁGINA WEB"
-                  >
-                    <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-                      SOLICITAR COTIZACIÓN DE ESTE PAQUETE
-                    </button>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <footer className="bg-gray-900 text-white p-4 text-center">
+          &copy; {new Date().getFullYear()} Sideris. Todos los derechos
+          reservados.
+        </footer>
       </div>
     </div>
   );
