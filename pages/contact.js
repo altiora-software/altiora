@@ -1,12 +1,58 @@
 import Container from "../components/container";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { sendContactForm } from "../lib/api";
+import { motion, useInView } from "framer-motion";
 import ReactGA from "react-ga";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const initValues = { nombre: "", email: "", phone: "", pais: "", servicio: "", detalles: "", otroPais: "" };
+const initValues = {
+  nombre: "",
+  email: "",
+  phone: "",
+  pais: "",
+  servicio: "",
+  detalles: "",
+  otroPais: "",
+};
 const initState = { values: initValues };
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const buttonHover = {
+  rest: { backgroundColor: "#2563eb", transition: { duration: 0.3 } },
+  hover: { backgroundColor: "#3b82f6", transition: { duration: 0.3 } },
+};
+
+const buttonAnimation = {
+  initial: { backgroundColor: "#2563eb" },
+  animate: {
+    backgroundColor: ["#2563eb", "#3b82f6", "#2563eb"],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      repeatType: "loop",
+    },
+  },
+};
 
 const Contact = () => {
   useEffect(() => {
@@ -28,8 +74,8 @@ const Contact = () => {
   const onSubmit = async () => {
     ReactGA.event({
       category: values.nombre,
-      action: 'Form contact',
-      label: 'Form Contact',
+      action: "Form contact",
+      label: "Form Contact",
       value: values.detalles,
     });
     setState((prev) => ({
@@ -40,7 +86,9 @@ const Contact = () => {
       toast.success("Mensaje enviado con éxito!");
       setState(initState);
     } catch (error) {
-      toast.error("Error al enviar el mensaje. Por favor, inténtalo nuevamente.");
+      toast.error(
+        "Error al enviar el mensaje. Por favor, inténtalo nuevamente."
+      );
       setState((prev) => ({
         ...prev,
         error: error.message,
@@ -48,27 +96,42 @@ const Contact = () => {
     }
   };
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { triggerOnce: true, threshold: 0.1 });
+
   return (
     <>
       <Container>
         <section className="bg-white dark:bg-[#03045E]">
-          <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+          <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-lg">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
                   ¿Buscas una solución a la medida?
                 </h2>
-                <p className="mb-8 lg:mb-16 font-light text-gray-700 dark:text-gray-400 sm:text-xl">
-                  Completa el formulario y nuestro equipo te contactará a la brevedad
+                <p className="mb-8 lg:mb-16 font-light text-gray-700 dark:text-gray-200 sm:text-xl">
+                  Completa el formulario y nuestro equipo te contactará a la
+                  brevedad
                 </p>
               </div>
               <div>
                 {error && (
-                  <h2 className="p-4 text-xl text-center text-red-600">{error}</h2>
+                  <h2 className="p-4 text-xl text-center text-red-600">
+                    {error}
+                  </h2>
                 )}
-                <form className="space-y-8">
-                  <div>
-                    <label htmlFor="nombre" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <motion.form
+                  ref={ref}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={staggerContainer}
+                  className="space-y-8"
+                >
+                  <motion.div variants={staggerItem}>
+                    <label
+                      htmlFor="nombre"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
                       Nombre
                     </label>
                     <input
@@ -81,9 +144,12 @@ const Contact = () => {
                       placeholder="Nombre completo"
                       required
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  </motion.div>
+                  <motion.div variants={staggerItem}>
+                    <label
+                      htmlFor="phone"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
                       Celular
                     </label>
                     <input
@@ -96,9 +162,12 @@ const Contact = () => {
                       placeholder="Ingresá el número"
                       required
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  </motion.div>
+                  <motion.div variants={staggerItem}>
+                    <label
+                      htmlFor="email"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
                       Correo
                     </label>
                     <input
@@ -111,9 +180,12 @@ const Contact = () => {
                       placeholder="Ingresá tu email"
                       required
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="pais" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  </motion.div>
+                  <motion.div variants={staggerItem}>
+                    <label
+                      htmlFor="pais"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
                       ¿Cuál es tu país?
                     </label>
                     <select
@@ -132,10 +204,13 @@ const Contact = () => {
                       <option value="eeuu">EEUU</option>
                       <option value="otro">Otro</option>
                     </select>
-                  </div>
+                  </motion.div>
                   {values.pais === "otro" && (
-                    <div>
-                      <label htmlFor="otroPais" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <motion.div variants={staggerItem}>
+                      <label
+                        htmlFor="otroPais"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >
                         Especificar país
                       </label>
                       <input
@@ -148,10 +223,13 @@ const Contact = () => {
                         placeholder="Especificar país"
                         required
                       />
-                    </div>
+                    </motion.div>
                   )}
-                  <div>
-                    <label htmlFor="servicio" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <motion.div variants={staggerItem}>
+                    <label
+                      htmlFor="servicio"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
                       Servicio
                     </label>
                     <select
@@ -166,9 +244,12 @@ const Contact = () => {
                       <option value="software-factory">Software Factory</option>
                       <option value="aplicaciones-web">Aplicaciones Web</option>
                     </select>
-                  </div>
-                  <div>
-                    <label htmlFor="detalles" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  </motion.div>
+                  <motion.div variants={staggerItem}>
+                    <label
+                      htmlFor="detalles"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
                       Detalles
                     </label>
                     <textarea
@@ -181,15 +262,19 @@ const Contact = () => {
                       placeholder="Brindanos toda la información posible para poder enviarte un presupuesto."
                       required
                     ></textarea>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={onSubmit}
-                    className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                  >
-                    Enviar mensaje
-                  </button>
-                </form>
+                  </motion.div>
+                  <motion.div variants={staggerItem}>
+                    <motion.button
+                      type="button"
+                      onClick={onSubmit}
+                      initial="initial"
+                      animate="animate"
+                      className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                    >
+                      Enviar mensaje
+                    </motion.button>
+                  </motion.div>
+                </motion.form>
               </div>
             </div>
           </div>

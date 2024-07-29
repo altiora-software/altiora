@@ -16,24 +16,22 @@ import Image from "next/image";
 import Topbar from "../components/Topbar";
 import ReactGA from "react-ga";
 
-
 const Home = () => {
-  const TRACKING_ID = ""
+  const TRACKING_ID = "";
   ReactGA.initialize(TRACKING_ID);
-  
+
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [completed, setCompleted] = useState(false);
 
-
-   const links = [
-     { name: "Inicio", href: "/" },
-     { name: "Servicios", href: "/servicios" },
-     { name: "Contacto", href: "/contact" },
-     { name: "Nosotros", href: "/nosotros" },
+  const links = [
+    { name: "Inicio", href: "/" },
+    { name: "Servicios", href: "/servicios" },
+    { name: "Contacto", href: "/contact" },
+    { name: "Nosotros", href: "/nosotros" },
     //  { name: "Paquetes", href: "/paquetes-todos" },
-     // Añade más enlaces según sea necesario
-   ];
+    // Añade más enlaces según sea necesario
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -89,26 +87,23 @@ const Home = () => {
             className="bg-gradient-to-r from-blue-300 via-gray-200 to-gray-50"
           */}
           {/* <Topbar /> */}
-          <Element name="inicio">
+          <Element name="Inicio">
             <Navbar links={links} />
           </Element>
           {/* INICIO */}
           {/* <Hero /> */}
           <HeroGrid />
           {/* BENEFICIOS */}
-          <Element name="Servicios">
-            <Services />
-          </Element>
+          <Element name="Servicios" className="h-24"></Element>
+          <Services />
           {/* CONTACTO */}
-          <Element name="Contacto">
-            <Contact />
-          </Element>
+          <Element name="Contacto" className="h-24"></Element>
+          <Contact />
           {/* BENEFICIOS */}
           {/* <ServiceCarousel /> */}
           {/* NOSOTROS */}
-          <Element name="Nosotros">
-            <Nosotros />
-          </Element>
+          <Element name="Nosotros" className="h-24"></Element>
+          <Nosotros />
           <Footer />
           <PopupWidget />
         </div>
