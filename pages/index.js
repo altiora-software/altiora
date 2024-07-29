@@ -10,14 +10,13 @@ import Contact from "./contact";
 import { Element } from "react-scroll";
 import HeroGrid from "../components/hero-grid";
 import Services from "../components/services";
-// import gifLoader from "../public/img-logo/gif-loader.gif"
 import gifLoader from "../public/img-logo/AltioraSlogan.png";
 import Image from "next/image";
 import Topbar from "../components/Topbar";
 import ReactGA from "react-ga";
 
 const Home = () => {
-  const TRACKING_ID = "";
+  const TRACKING_ID = "YOUR_TRACKING_ID"; // Reemplaza con tu ID de Google Analytics
   ReactGA.initialize(TRACKING_ID);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -29,24 +28,28 @@ const Home = () => {
     { name: "Servicios", href: "/servicios" },
     { name: "Contacto", href: "/contact" },
     { name: "Nosotros", href: "/nosotros" },
-    //  { name: "Paquetes", href: "/paquetes-todos" },
-    // Añade más enlaces según sea necesario
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (progress < 100) {
-        setProgress((prevProgress) => prevProgress + 1);
-      } else {
-        clearInterval(timer);
-        setCompleted(true);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 2000);
-      }
-    }, 20);
+    const hasLoaded = localStorage.getItem("hasLoaded");
+    if (hasLoaded) {
+      setIsLoading(false);
+    } else {
+      const timer = setInterval(() => {
+        if (progress < 100) {
+          setProgress((prevProgress) => prevProgress + 1);
+        } else {
+          clearInterval(timer);
+          setCompleted(true);
+          setTimeout(() => {
+            setIsLoading(false);
+            localStorage.setItem("hasLoaded", "true");
+          }, 2000);
+        }
+      }, 20);
 
-    return () => clearInterval(timer);
+      return () => clearInterval(timer);
+    }
   }, [progress]);
 
   return (
@@ -60,11 +63,6 @@ const Home = () => {
       {isLoading ? (
         <div className="loading-screen">
           <div className="loading-content">
-            {/* <img
-              src="/img-logo/isologoSinFondoNegro.png"
-              alt="Loading"
-              className="loading-image"
-            /> */}
             <Image
               src={gifLoader}
               alt="Cargando..."
@@ -83,25 +81,14 @@ const Home = () => {
         </div>
       ) : (
         <div>
-          {/* GRADIENT 
-            className="bg-gradient-to-r from-blue-300 via-gray-200 to-gray-50"
-          */}
-          {/* <Topbar /> */}
           <Element name="Inicio">
             <Navbar links={links} />
           </Element>
-          {/* INICIO */}
-          {/* <Hero /> */}
           <HeroGrid />
-          {/* BENEFICIOS */}
           <Element name="Servicios" className="h-24"></Element>
           <Services />
-          {/* CONTACTO */}
           <Element name="Contacto" className="h-24"></Element>
           <Contact />
-          {/* BENEFICIOS */}
-          {/* <ServiceCarousel /> */}
-          {/* NOSOTROS */}
           <Element name="Nosotros" className="h-24"></Element>
           <Nosotros />
           <Footer />
