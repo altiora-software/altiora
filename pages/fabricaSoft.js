@@ -36,7 +36,7 @@ const FabricaSoft = () => {
       <Container>
         <div>
 
-          <div className="container mx-auto py-12  lg:px-8">
+          <div className="container mx-auto py-24  lg:px-8">
             <h1 className="text-4xl font-bold text-center text-[#4888CD] dark:text-gray-100">
               Fábrica de Software
             </h1>
