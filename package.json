@@ -26,12 +26,14 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "axios": "^1.7.3",
     "clsx": "^2.1.1",
     "framer-motion": "^11.1.9",
     "heroicons": "^2.1.5",
     "i18next": "^23.7.8",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.2",
+    "newsapi": "^2.4.1",
     "next": "^13.3.1",
     "next-themes": "^0.2.1",
     "nodemailer": "^6.9.11",
@@ -45,7 +47,8 @@
     "react-toastify": "^10.0.5",
     "sharp": "^0.33.3",
     "slick-carousel": "^1.8.1",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
