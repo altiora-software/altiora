@@ -71,7 +71,22 @@ const Contact = () => {
       },
     }));
 
+  const validateForm = () => {
+    const { nombre, email, phone, pais, servicio, detalles } = values;
+    if (!nombre || !email || !phone || !pais || !servicio || !detalles) {
+      toast.error("Todos los campos son obligatorios.");
+      return false;
+    }
+    if (pais === "otro" && !values.otroPais) {
+      toast.error("Especificar país es obligatorio.");
+      return false;
+    }
+    return true;
+  };
+
   const onSubmit = async () => {
+    if (!validateForm()) return;
+
     ReactGA.event({
       category: values.nombre,
       action: "Form contact",
@@ -220,7 +235,7 @@ const Contact = () => {
                         type="text"
                         id="otroPais"
                         className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                        placeholder="Especificar país"
+                        placeholder="Ingresá el nombre del país"
                         required
                       />
                     </motion.div>
@@ -230,7 +245,7 @@ const Contact = () => {
                       htmlFor="servicio"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Servicio
+                      ¿Qué servicio te interesa?
                     </label>
                     <select
                       name="servicio"
@@ -240,9 +255,9 @@ const Contact = () => {
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       required
                     >
-                      <option value="">Seleccioná el servicio</option>
-                      <option value="software-factory">Software Factory</option>
-                      <option value="aplicaciones-web">Aplicaciones Web</option>
+                      <option value="">Seleccionar servicio</option>
+                      <option value="sitioWeb">Sitios Webs</option>
+                      <option value="Software-Factory">Software Factory</option>
                     </select>
                   </motion.div>
                   <motion.div variants={staggerItem}>
@@ -250,30 +265,28 @@ const Contact = () => {
                       htmlFor="detalles"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Detalles
+                      Más detalles
                     </label>
                     <textarea
                       name="detalles"
                       value={values.detalles}
                       onChange={handleChange}
                       id="detalles"
-                      rows="6"
-                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder="Brindanos toda la información posible para poder enviarte un presupuesto."
+                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      placeholder="Especifica más detalles"
                       required
                     ></textarea>
                   </motion.div>
-                  <motion.div variants={staggerItem}>
-                    <motion.button
-                      type="button"
-                      onClick={onSubmit}
-                      initial="initial"
-                      animate="animate"
-                      className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                    >
-                      Enviar mensaje
-                    </motion.button>
-                  </motion.div>
+                  <motion.button
+                    type="button"
+                    onClick={onSubmit}
+                    variants={buttonHover}
+                    whileHover="hover"
+                    initial="rest"
+                    className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  >
+                    Enviar
+                  </motion.button>
                 </motion.form>
               </div>
             </div>
