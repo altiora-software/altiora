@@ -10,7 +10,7 @@ const ButtonTop = () => {
             {/* Subir  */}
             <ScrollLink
               activeClass="active"
-              to="inicio"
+              to="Inicio"
               spy={true}
               smooth={true}
               offset={50}

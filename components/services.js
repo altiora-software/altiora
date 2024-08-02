@@ -39,7 +39,7 @@ export default function Services() {
   const isInView2 = useInView(ref2, { once: true });
 
   return (
-    <Container className="py-0 pb-4">
+    <Container className="py-0 pb-4 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <h2 className="text-3xl font-bold leading-8 text-00B4D8-900">
