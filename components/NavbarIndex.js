@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import { useState } from "react";
+import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion"; // Importación de framer-motion
 import Topbar from "./Topbar";
 import {
@@ -12,16 +13,7 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/24/outline"; // Importación de iconos
 
-const Navbar = () => {
-  // console.log("LINKS",links);
-
-   const links = [
-     { name: "Inicio", href: "/" },
-     { name: "Servicios", href: "/" },
-     { name: "Contacto", href: "/" },
-     { name: "Nosotros", href: "/" },
-   ];
-  
+const Navbar = ({ links = [] }) => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
@@ -186,13 +178,18 @@ const Navbar = () => {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <Link
+                    <ScrollLink
                       key={index}
-                      href={`/${item.href.toLowerCase()}`}
                       className="w-full px-4 py-2 text-gray-900 font-bold rounded-md dark:text-gray-100 hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none"
+                      activeClass="active"
+                      to={item.name}
+                      spy={true}
+                      smooth={true}
+                      offset={50}
+                      duration={500}
                     >
                       {item.name}
-                    </Link>
+                    </ScrollLink>
                   )
                 )}
                 <div className="pt-3 pl-4">
@@ -214,11 +211,18 @@ const Navbar = () => {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <Link href="/fabricaSoft">
+                  <ScrollLink
+                    activeClass="active"
+                    to={menu.name}
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
                     <span className="px-4 py-2 text-lg font-normal text-gray-800 rounded-md dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none">
                       Servicios
                     </span>
-                  </Link>
+                  </ScrollLink>
                   <AnimatePresence>
                     {dropdownOpen && (
                       <motion.div
@@ -287,12 +291,17 @@ const Navbar = () => {
                 </li>
               ) : (
                 <li key={index}>
-                  <Link
-                    href={`/${menu.href.toLowerCase()}`}
+                  <ScrollLink
                     className="px-4 py-2 text-lg font-normal text-gray-800 rounded-md dark:text-gray-200 hover:text-[#4888CD] dark:hover:text-[#4888CD] focus:text-white focus:bg-[#4888CD] dark:focus:bg-gray-800 focus:outline-none"
+                    activeClass="active"
+                    to={menu.name}
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
                   >
                     {menu.name}
-                  </Link>
+                  </ScrollLink>
                 </li>
               )
             )}

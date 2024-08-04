@@ -9,6 +9,7 @@ export default function Servicios() {
     { name: "Inicio", href: "/" },
     { name: "Servicios", href: "/" },
     { name: "Contacto", href: "/" },
+    { name: "Nosotros", href: "/" },
     //  { name: "Paquetes", href: "/paquetes-todos" },
     // Añade más enlaces según sea necesario
   ];

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import Navbar from "../components/navbar";
+import NavbarIndex from "../components/NavbarIndex";
 import Footer from "../components/footer";
 import PopupWidget from "../components/popupWidget";
 import ServiceCarousel from "../components/carrousel";
@@ -82,7 +82,7 @@ const Home = () => {
       ) : (
         <div>
           <Element name="Inicio">
-            <Navbar links={links} />
+            <NavbarIndex links={links} />
           </Element>
           <HeroGrid />
           <Element name="Servicios" className="h-24"></Element>
